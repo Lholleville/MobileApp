@@ -1,21 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Atlantis
+      Home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <!--<ion-list>-->
     <!--&lt;!&ndash;<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">&ndash;&gt;-->
       <!--&lt;!&ndash;{{ item.text }}&ndash;&gt;-->
     <!--&lt;!&ndash;</button>&ndash;&gt;-->
   <!--</ion-list>-->
 
-  <ion-tabs>
-    <ion-tab>Home</ion-tab>
-    <ion-tab>Devices</ion-tab>
-    <ion-tab>Metrics</ion-tab>
-  </ion-tabs>
+  <ion-list>
+    <ion-card>Devices online : </ion-card>
+    <ion-card>Average temperature :</ion-card>
+    <ion-card>Average atmospheric pressure :</ion-card>
+    <ion-card>CO2 level : </ion-card>
+  </ion-list>
 </ion-content>

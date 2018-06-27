@@ -7,12 +7,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>devicesDetails</ion-title>
+    <ion-title>{{ item?.text }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-content padding>
+    <ion-list>
+      <button ion-item *ngFor="let device of devices" (click)="itemSelected(device)">
+        {{ device.text }}
+      </button>
+    </ion-list>
+  </ion-content>
 
 </ion-content>

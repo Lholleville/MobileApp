@@ -9,8 +9,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 export class dataSet{
   devicesList: any[];
 
-  devicesListGenerator() {
-
+  public devicesListGenerator() {
     this.devicesList = [];
     this.devicesList.push({
       presenceSensor: this.getRndInteger(10, 75),
@@ -23,7 +22,8 @@ export class dataSet{
       CO2LevelSensor: this.getRndInteger(5, 25),
       LED: this.getRndInteger(25, 100),
       Beeper: this.getRndInteger(25, 100)
-    })
+    });
+    return this.devicesList;
   }
 
   getRndInteger(min, max){

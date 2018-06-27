@@ -15,11 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetailPage {
 
+  device:any;
+  // item: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.device = this.navParams.get('device');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailPage');
   }
 
 }

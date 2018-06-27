@@ -7,12 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>devicesList</ion-title>
+    <ion-title>Your devices</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <h6>Devices online : </h6>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ item.text }}
+    </button>
+  </ion-list>
 </ion-content>

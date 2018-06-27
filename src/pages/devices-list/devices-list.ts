@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Http} from "@angular/http";
+import {DetailPage} from "../detail/detail";
+import { DevicesDetailsPage } from "../devices-details/devices-details";""
 
 /**
  * Generated class for the DevicesListPage page.
@@ -15,11 +18,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DevicesListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  items: any[];
+
+  constructor(public navCtrl: NavController, public http: Http) {
+
+    this.items = [];
+    for(let i = 0; i<10; i++){
+      this.items.push({
+        text: 'Item' + i,
+        id: i
+      });
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DevicesListPage');
+  itemSelected(item){
+    this.navCtrl.push(DevicesDetailsPage, {item: item});
   }
 
 }
