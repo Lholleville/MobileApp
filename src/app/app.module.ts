@@ -12,6 +12,7 @@ import {DevicesDetailsPage} from "../pages/devices-details/devices-details";
 import {DevicesListPage} from "../pages/devices-list/devices-list";
 import {MetricsListPage} from "../pages/metrics-list/metrics-list";
 import {TabsMenuePage} from "../pages/tabs-menue/tabs-menue";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {TabsMenuePage} from "../pages/tabs-menue/tabs-menue";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

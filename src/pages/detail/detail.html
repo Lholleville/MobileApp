@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ device?.text }}</ion-title>
+    <ion-title>{{ device?.devicetype }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,4 +17,9 @@
 
   <h6>Last results: </h6>
 
+  <!--<button ion-button outline block>Activate</button>-->
+  <ion-item>
+    <ion-label>Activate</ion-label>
+    <ion-toggle [(ngModel)]="activate"></ion-toggle>
+  </ion-item>
 </ion-content>

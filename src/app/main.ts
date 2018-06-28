@@ -2,12 +2,16 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app.module';
 import {Http} from "@angular/http";
-import {NavController} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
+import {DetailPage} from "../pages/detail/detail";
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
 export class dataSet{
   devicesList: any[];
+
 
   public devicesListGenerator() {
     this.devicesList = [];
@@ -28,5 +32,27 @@ export class dataSet{
 
   getRndInteger(min, max){
     return Math.floor(Math.random() * (max - min + 1))+min;
+  }
+
+  item: any;
+  devices: any;
+  public items: any;
+
+  public constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    // this.getRemoteData();
+    this.item = this.navParams.get('item');
+    this.devices = [];
+  }
+
+  public itemSelected(device){
+    this.navCtrl.push(DetailPage, {device: device});
+  }
+
+  public loadData(url) {
+    let data:Observable<any>;
+    data = this.http.get(url);
+    data.subscribe(result => {
+      this.items = result;
+    });
   }
 }

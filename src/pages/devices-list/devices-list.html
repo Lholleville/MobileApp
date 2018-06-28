@@ -12,12 +12,11 @@
 
 </ion-header>
 
-
 <ion-content padding>
   <h6>Devices online : </h6>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-      {{ item.text }}
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)"> <!--for each type of devices-->
+      {{ item.devicetype }}
     </button>
   </ion-list>
 </ion-content>

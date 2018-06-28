@@ -12,15 +12,11 @@
 
 </ion-header>
 
-
 <ion-content padding>
-
-  <ion-content padding>
-    <ion-list>
-      <button ion-item *ngFor="let device of devices" (click)="itemSelected(device)">
-        {{ device.text }}
-      </button>
-    </ion-list>
-  </ion-content>
-
+  <ion-list>
+    <!--for each devices that correspond to the type of device chosen-->
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ item }}
+    </button>
+  </ion-list>
 </ion-content>
