@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Http} from "@angular/http";
-import {DetailPage} from "../detail/detail";
-import { DevicesDetailsPage } from "../devices-details/devices-details";
-import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
-
-""
+import {DataEngineProvider} from "../../providers/data-engine/data-engine";
+import {DevicesDetailsPage} from "../devices-details/devices-details";
 
 /**
  * Generated class for the DevicesListPage page.
@@ -22,28 +18,21 @@ import {HttpClient} from "@angular/common/http";
 })
 export class DevicesListPage {
 
-  public items: any;
+  userLinkedDevices: any;
+  devicesCount: any;
+  constructor(public navCtrl: NavController, public http: HttpClient, public dataSet: DataEngineProvider) {
+    let userID = "users"; //will be automatically replaced by the one sent back by Eliot's API
 
-  constructor(public navCtrl: NavController, public http: HttpClient) {
-    this.loadData();
-    // this.items = [];
-    // for(let i = 0; i<10; i++){
-    //   this.items.push({
-    //     text: 'Item' + i,
-    //     id: i
-    //   });
-    // }
+    this.dataSet.loadData('https://jsonplaceholder.typicode.com/'+userID).then(data => {
+      this.userLinkedDevices = data;
+      this.devicesCount = data;
+      this.devicesCount = this.devicesCount.length; //!!! must change to get the users devices, here it gets the devices types!!!
+    }); //Load the data from the Java server relative to the user specified in a variable called userLinkedDevices
   }
 
-  itemSelected(item){
-    this.navCtrl.push(DevicesDetailsPage, {item: item});
-  }
-
-  private loadData() {
-    let data:Observable<any>;
-    data = this.http.get('http://10.176.129.83:54815/JavaplatformLinux/webresources/entities.devicetype');
-    data.subscribe(result => {
-      this.items = result;
-    });
+  itemSelected(chosenDeviceType){
+    this.navCtrl.push(DevicesDetailsPage, {
+      chosenDeviceType: chosenDeviceType.id,
+      chosenDeviceName: chosenDeviceType.name});
   }
 }

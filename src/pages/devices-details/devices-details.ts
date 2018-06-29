@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DetailPage} from "../detail/detail";
-import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
+import {DataEngineProvider} from "../../providers/data-engine/data-engine";
+import {DevicesListPage} from "../devices-list/devices-list";
 
 /**
  * Generated class for the DevicesDetailsPage page.
@@ -18,32 +19,25 @@ import {HttpClient} from "@angular/common/http";
 })
 export class DevicesDetailsPage {
 
-  item: any;
+  chosenDeviceType: any;
+  chosenDeviceName: any;
   devices: any;
-  public items: any;
+  private toggleable: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
-    // this.getRemoteData();
-    this.loadData();
-    this.item = this.navParams.get('item');
-    this.devices = [];
-    // for(let i = 0; i<10; i++){
-    //   this.devices.push({
-    //     text: 'device ' + i,
-    //     id: i
-    //   });
-    // }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public dataSet: DataEngineProvider) {
+    this.chosenDeviceType = navParams.get('chosenDeviceType');
+    this.chosenDeviceName = navParams.get('chosenDeviceName');
+    this.dataSet.loadData('https://jsonplaceholder.typicode.com/posts?userId='+this.chosenDeviceType).then(data => {
+      this.devices = data;
+    }); //Load the data from the Java server relative to the user specified in a variable called userLinkedDevices
   }
 
   itemSelected(device){
-    this.navCtrl.push(DetailPage, {device: device});
-  }
-
-  private loadData() {
-    let data:Observable<any>;
-    data = this.http.get('http://10.176.129.83:54815/JavaplatformLinux/webresources/entities.devicetype');
-    data.subscribe(result => {
-      this.items = result;
-    });
+    if (this.chosenDeviceType == 9 || this.chosenDeviceType == 10){
+      this.toggleable = true;
+    } else {
+      this.toggleable = false;
+    }
+    this.navCtrl.push(DetailPage, {device: device, toggleable: this.toggleable});
   }
 }

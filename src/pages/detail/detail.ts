@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { dataSet } from "../../app/main";
+import {HttpClient} from "@angular/common/http";
+import {DataEngineProvider} from "../../providers/data-engine/data-engine";
 
 /**
  * Generated class for the DetailPage page.
@@ -15,14 +18,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetailPage {
 
-  device:any;
-  // item: any;
+  deviceType: any;
+  deviceInfos: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.device = this.navParams.get('device');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public dataSet: DataEngineProvider) {
+    this.deviceInfos = this.navParams.get("device");
+    this.deviceType = this.navParams.get("toggleable");
   }
 
-  ionViewDidLoad() {
-  }
 
 }

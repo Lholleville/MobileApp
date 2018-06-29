@@ -7,12 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Metrics list</ion-title>
+    <ion-title>Calculated metrics</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h6>List of the metrics per devices</h6>
+  <ion-grid>
+    <ion-row wrap>
+      <ion-col width-50 *ngFor="let metric of metrics">
+        <ion-card>{{metric.title}}</ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

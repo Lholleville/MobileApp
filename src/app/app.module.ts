@@ -13,6 +13,8 @@ import {DevicesListPage} from "../pages/devices-list/devices-list";
 import {MetricsListPage} from "../pages/metrics-list/metrics-list";
 import {TabsMenuePage} from "../pages/tabs-menue/tabs-menue";
 import {HttpClientModule} from "@angular/common/http";
+import { DataEngineProvider } from '../providers/data-engine/data-engine';
+import "rxjs"
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {HttpClientModule} from "@angular/common/http";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataEngineProvider,
+
   ]
 })
 export class AppModule {

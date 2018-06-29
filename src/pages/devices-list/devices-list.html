@@ -13,10 +13,10 @@
 </ion-header>
 
 <ion-content padding>
-  <h6>Devices online : </h6>
+  <h6>Your online devices : {{ devicesCount }}</h6>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)"> <!--for each type of devices-->
-      {{ item.devicetype }}
+    <button ion-item *ngFor="let deviceType of userLinkedDevices" (click)="itemSelected(deviceType)"> <!--for each type of devices-->
+      {{ deviceType.name }}
     </button>
   </ion-list>
 </ion-content>
