@@ -10,8 +10,8 @@ import { TabsMenuePage} from "../pages/tabs-menue/tabs-menue";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = LandingPage;
-  rootPage:any = TabsMenuePage;
+  rootPage:any = LandingPage;
+  // rootPage:any = TabsMenuePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

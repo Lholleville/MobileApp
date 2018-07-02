@@ -2,21 +2,36 @@
   <ion-navbar>
     <ion-title>
       Home
+      <button ion-button icon-only right (click)="disconnection()"><ion-icon name="exit"></ion-icon></button>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <!--<ion-list>-->
-    <!--&lt;!&ndash;<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">&ndash;&gt;-->
-      <!--&lt;!&ndash;{{ item.text }}&ndash;&gt;-->
-    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-  <!--</ion-list>-->
-
-  <ion-list>
-    <ion-card><ion-card-header>Total devices online : {{ devicesCount }}</ion-card-header></ion-card>
-    <ion-card><ion-card-header>Today's average temperature : 22°C</ion-card-header></ion-card>
-    <ion-card><ion-card-header>Today's average atmospheric pressure : 18kHp</ion-card-header></ion-card>
-    <ion-card><ion-card-header>CO2 level : 34%</ion-card-header></ion-card>
-  </ion-list>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50>
+        <ion-card padding>
+          Total devices online : {{ devicesCount }}
+        </ion-card>
+      </ion-col>
+      <ion-col width-50>
+        <ion-card padding>
+          Today's average temperature : 22°C
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-50>
+        <ion-card padding>
+          Today's average atmospheric pressure : 18kHp
+        </ion-card>
+      </ion-col>
+      <ion-col width-50>
+        <ion-card padding>
+          CO2 level : 34%
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

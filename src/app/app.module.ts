@@ -14,7 +14,9 @@ import {MetricsListPage} from "../pages/metrics-list/metrics-list";
 import {TabsMenuePage} from "../pages/tabs-menue/tabs-menue";
 import {HttpClientModule} from "@angular/common/http";
 import { DataEngineProvider } from '../providers/data-engine/data-engine';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 import "rxjs"
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import "rxjs"
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +52,7 @@ import "rxjs"
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataEngineProvider,
-
+    InAppBrowser
   ]
 })
 export class AppModule {

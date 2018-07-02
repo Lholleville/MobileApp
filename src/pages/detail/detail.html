@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-  <h6>Last results: {{ deviceInfos?.body }}</h6>
+  <h6 *ngIf="!deviceType">Last results: {{ deviceInfos?.body }}</h6>
 
   <!--<button ion-button outline block>Activate</button>-->
   <ion-item *ngIf="deviceType">

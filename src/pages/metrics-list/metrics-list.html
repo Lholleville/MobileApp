@@ -13,11 +13,11 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-grid>
     <ion-row wrap>
-      <ion-col width-50 *ngFor="let metric of metrics">
-        <ion-card>{{metric.title}}</ion-card>
+      <ion-col width-25 *ngFor="let metric of metrics">
+        <ion-card padding text-justify>{{metric.title}}</ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

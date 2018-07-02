@@ -16,10 +16,10 @@ import {MetricsListPage} from "../metrics-list/metrics-list";
   selector: 'page-tabs-menue',
   templateUrl: 'tabs-menue.html',
   template:'<ion-tabs>\n' +
-  '      <ion-tab tabIcon="home" tabTitle="Home"    [root]="tab1"></ion-tab>\n' +
-  '      <ion-tab tabIcon="thermometer" tabTitle="Devices" [root]="tab2"></ion-tab>\n' +
-  '      <ion-tab tabIcon="analytics" tabTitle="Metrics" [root]="tab3"></ion-tab>\n' +
-  '      </ion-tabs>`'
+  '<ion-tab tabIcon="home"        tabTitle="Home"    [root]="tab1"></ion-tab>\n' +
+  '<ion-tab tabIcon="thermometer" tabTitle="Devices" [root]="tab2"></ion-tab>\n' +
+  '<ion-tab tabIcon="analytics"   tabTitle="Metrics" [root]="tab3"></ion-tab>\n' +
+  '</ion-tabs>`'
 })
 export class TabsMenuePage {
   tab1: any;
@@ -30,10 +30,6 @@ export class TabsMenuePage {
     this.tab1 = HomePage;
     this.tab2 = DevicesListPage;
     this.tab3 = MetricsListPage;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsMenuePage');
   }
 
 }
