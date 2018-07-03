@@ -17,6 +17,7 @@ import { DataEngineProvider } from '../providers/data-engine/data-engine';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import "rxjs"
 import {IonicStorageModule} from "@ionic/storage";
+import {FirstloginPage} from "../pages/firstlogin/firstlogin";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {IonicStorageModule} from "@ionic/storage";
     DevicesDetailsPage,
     DevicesListPage,
     MetricsListPage,
-    TabsMenuePage
+    TabsMenuePage,
+    FirstloginPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import {IonicStorageModule} from "@ionic/storage";
     DevicesDetailsPage,
     DevicesListPage,
     MetricsListPage,
-    TabsMenuePage
+    TabsMenuePage,
+    FirstloginPage
   ],
   providers: [
     StatusBar,
