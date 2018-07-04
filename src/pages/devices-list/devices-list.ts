@@ -23,7 +23,8 @@ export class DevicesListPage {
   constructor(public navCtrl: NavController, public http: HttpClient, public dataSet: DataEngineProvider) {
     let userID = "users"; //will be automatically replaced by the one sent back by Eliot's API
 
-    this.dataSet.loadData('https://jsonplaceholder.typicode.com/'+userID).then(data => {
+    this.dataSet.loadData('https://jsonplaceholder.typicode.com/'+userID)
+      .then(data => {
       this.userLinkedDevices = data;
       this.devicesCount = data;
       this.devicesCount = this.devicesCount.length; //!!! must change to get the users devices, here it gets the devices types!!!

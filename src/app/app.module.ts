@@ -18,6 +18,7 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 import "rxjs"
 import {IonicStorageModule} from "@ionic/storage";
 import {FirstloginPage} from "../pages/firstlogin/firstlogin";
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {FirstloginPage} from "../pages/firstlogin/firstlogin";
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

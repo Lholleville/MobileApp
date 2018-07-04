@@ -50,7 +50,7 @@ export class LandingPage {
 
     setTimeout(()=>{
       loading.dismiss();
-    }, 5000);
+    }, 3000);
   }
 
   redirect(){
